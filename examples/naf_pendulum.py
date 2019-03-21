@@ -1,6 +1,6 @@
 import numpy as np
 import gym
-
+import gymfc
 from keras.models import Sequential, Model
 from keras.layers import Dense, Activation, Flatten, Input, Concatenate
 from keras.optimizers import Adam
@@ -14,10 +14,11 @@ class PendulumProcessor(Processor):
     def process_reward(self, reward):
         # The magnitude of the reward can be important. Since each step yields a relatively
         # high reward, we reduce the magnitude by two orders.
-        return reward / 100.
+        return reward / 10.
 
 
-ENV_NAME = 'Pendulum-v0'
+ENV_NAME = '/root/code/nti/gymfc/examples/configs/iris.config'
+os.environ['GYMFC_CONFIG'] = '/root/code/nti/gymfc/examples/configs/iris.config'
 
 
 # Get the environment and extract the number of actions.
