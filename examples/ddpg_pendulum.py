@@ -1,6 +1,8 @@
 import numpy as np
 import gym
 
+import os
+
 from keras.models import Sequential, Model
 from keras.layers import Dense, Activation, Flatten, Input, Concatenate
 from keras.optimizers import Adam
@@ -10,8 +12,8 @@ from rl.memory import SequentialMemory
 from rl.random import OrnsteinUhlenbeckProcess
 
 
-ENV_NAME = 'Pendulum-v0'
-
+ENV_NAME = '/root/code/nti/gymfc/examples/configs/iris.config'
+os.environ['GYMFC_CONFIG'] = '/root/code/nti/gymfc/examples/configs/iris.config'
 
 # Get the environment and extract the number of actions.
 env = gym.make(ENV_NAME)
